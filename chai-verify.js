@@ -7,10 +7,26 @@
     
 })(function (chai) {
 
+    function isFunction(value) {
+        return typeof value === 'function';
+    }
+
+    function handleFunctionProperties(key, value) {
+        if(isFunction(value)) {
+            const functionName = Boolean(value.name)
+                ? value.name
+                : 'anonymous';
+
+            return `[Function: ${functionName}]`;
+        }
+
+        return value;
+    }
+
     function prettyJson(value) {
         return typeof value === 'undefined'
             ? 'undefined'
-            : JSON.stringify(value, null, 4);
+            : JSON.stringify(value, handleFunctionProperties, 4);
     }
 
     function errorBuilder(actualString, expectedString) {
