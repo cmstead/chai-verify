@@ -1,6 +1,6 @@
 {
   "name": "chai-verify",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Object verification method for Chai built on the philosophy of Golden Master testing",
   "main": "chai-verify.js",
   "directories": {
